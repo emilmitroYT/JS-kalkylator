@@ -55,7 +55,7 @@ class Calculator {
       this.operation = undefined
       this.previousOperand = ''
     }
-  
+    // får display numret/numerna
     getDisplayNumber(number) {
       const stringNumber = number.toString()
       const integerDigits = parseFloat(stringNumber.split('.')[0])
@@ -72,7 +72,7 @@ class Calculator {
         return integerDisplay
       }
     }
-  
+    //uppdaterar displayn på kalkylatorn
     updateDisplay() {
       this.currentOperandTextElement.innerText =
         this.getDisplayNumber(this.currentOperand)
@@ -95,7 +95,7 @@ class Calculator {
   const currentOperandTextElement = document.querySelector('[data-current-operand]')
   
   const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
-  
+  // alla numer buttonena
   numberButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.appendNumber(button.innerText)
@@ -109,17 +109,17 @@ class Calculator {
       calculator.updateDisplay()
     })
   })
-  
+  // equals buttonen
   equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updateDisplay()
   })
-  
+  // clear buttonen
   allClearButton.addEventListener('click', button => {
     calculator.clear()
     calculator.updateDisplay()
   })
-  
+  // delete buttonen
   deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
